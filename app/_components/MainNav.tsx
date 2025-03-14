@@ -1,10 +1,27 @@
 "use client";
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 export default function MainNav() {
   const [isLoading, setIsLoading] = useState(false);
   const { isSignedIn } = useUser();
+  const [theme, setTheme] = useState("light");
+
+  // Load theme from localStorage on mount
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme") || "light";
+    setTheme(storedTheme);
+    document.documentElement.setAttribute("data-theme", storedTheme);
+  }, []);
+
+  // Toggle Theme
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "halloween" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -50,11 +67,12 @@ export default function MainNav() {
             <a>AI Interviewer</a>
           </li>
         </ul>
+
         <a
           href="#"
-          className="bg-black dark:bg-white text-white p-3 rounded-3xl dark:text-black font-semibold btn"
+          className="bg-black dark:bg-white text-white p-3 rounded-3xl dark:text-black font-semibold btn text-sm lg:text-xl "
         >
-          AI-Resume-Consultant
+          ARC
         </a>
       </div>
       <div className="navbar-center hidden  lg:flex gap-8">
@@ -93,18 +111,33 @@ export default function MainNav() {
         <span className="btn btn-ghost">Contact Us</span>
       </div>
       <div className="navbar-end flex gap-2">
-        {isSignedIn ? <UserButton /> : <SignInButton />}
+        {isSignedIn ? (
+          <div className="dark:bg-white p-2 rounded-box">
+            <UserButton showName />
+          </div>
+        ) : (
+          <div
+            className="btn btn-accent"
+            onClick={() => {
+              setIsLoading(true);
+              setInterval(() => {
+                setIsLoading(false);
+              }, 1000);
+            }}
+          >
+            {isLoading ? (
+              <div className="loading loading-dots"></div>
+            ) : (
+              <SignInButton />
+            )}
+          </div>
+        )}
         <label className="toggle text-base-content">
           <input
             type="checkbox"
-            value="halloween"
             className="theme-controller"
-            onChange={(e) => {
-              document.documentElement.setAttribute(
-                "data-theme",
-                e.target.checked ? "halloween" : "fantasy"
-              );
-            }}
+            onChange={toggleTheme}
+            checked={theme === "halloween"}
           />
 
           <svg
