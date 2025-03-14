@@ -1,7 +1,10 @@
 "use client";
-import React from "react";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import React, { useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 export default function MainNav() {
+  const [isLoading, setIsLoading] = useState(false);
+  const { isSignedIn } = useUser();
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -90,7 +93,7 @@ export default function MainNav() {
         <span className="btn btn-ghost">Contact Us</span>
       </div>
       <div className="navbar-end flex gap-2">
-        <button className="btn btn-accent">Signin</button>
+        {isSignedIn ? <UserButton /> : <SignInButton />}
         <label className="toggle text-base-content">
           <input
             type="checkbox"
