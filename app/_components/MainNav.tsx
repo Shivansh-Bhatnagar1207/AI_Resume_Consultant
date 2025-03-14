@@ -51,7 +51,7 @@ export default function MainNav() {
           href="#"
           className="bg-black dark:bg-white text-white p-3 rounded-3xl dark:text-black font-semibold btn"
         >
-          AI-Resume-Builder
+          AI-Resume-Consultant
         </a>
       </div>
       <div className="navbar-center hidden  lg:flex gap-8">
@@ -61,7 +61,7 @@ export default function MainNav() {
           popoverTarget="lm"
           style={{ anchorName: "--anchor-2" }}
         >
-          Learn More <RiArrowDropDownLine size={25}/>
+          Learn More <RiArrowDropDownLine size={25} />
         </button>
 
         <ul
