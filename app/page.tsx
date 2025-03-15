@@ -2,13 +2,14 @@
 import React from "react";
 import MainNav from "./_components/MainNav";
 import { Typewriter } from "react-simple-typewriter";
+import Timeline from "./_components/Timeline";
 
 export default function Home() {
   return (
     <>
       <MainNav />
 
-    {/* Hero Section */}
+      {/* Hero Section */}
 
       <div className="hero min-h-screen relative overflow-hidden w-[95dvw] mx-auto rounded-3xl my-2">
         <video
@@ -48,7 +49,42 @@ export default function Home() {
         </div>
       </div>
 
-      <div></div>
+      <div className="hero min-h-screen">
+        <div className="hero bg-base min-h-screen">
+          <div className="hero-content text-center">
+            <div className="max-w-4xl">
+              <h1 className="text-6xl font-extrabold text-gray-800 dark:text-gray-200 mb-6">
+                Transform Your Career with{" "}
+                <span className="text-primary">AI-Powered Tools</span>
+              </h1>
+              <p className="py-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+                Step into the future of career growth with our revolutionary
+                platform designed to supercharge your professional journey. From
+                optimizing your resume for ATS systems to crafting compelling
+                LinkedIn posts, we provide AI-driven solutions tailored to your
+                unique career aspirations. Explore, analyze, and excel with
+                cutting-edge tools built just for you.
+              </p>
+
+              <div className="max-w-4xl mx-auto my-10">
+                <h1 className="text-3xl font-extrabold text-center text-gray-800 dark:text-gray-200 mb-4">
+                  Revolutionizing Resume Building & LinkedIn
+                </h1>
+                <p className="text-lg text-gray-600 dark:text-gray-300 text-justify leading-relaxed">
+                  Our application is designed to simplify resume creation and
+                  content generation for LinkedIn. Whether you're a student or a
+                  seasoned professional, we leverage advanced AI capabilities to
+                  help you create ATS-friendly resumes, optimize your profiles,
+                  and craft compelling posts that stand out.
+                </p>
+
+                {/* Timeline Component */}
+                <Timeline />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

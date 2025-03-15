@@ -70,12 +70,12 @@ export default function MainNav() {
 
         <a
           href="#"
-          className="bg-black dark:bg-white text-white p-3 rounded-3xl dark:text-black font-semibold btn text-sm lg:text-xl "
+          className="bg-primary text-white p-3 rounded-3xl font-semibold btn text-sm lg:text-xl "
         >
           ARC
         </a>
       </div>
-      <div className="navbar-center hidden  lg:flex gap-8">
+      <div className="navbar-center hidden  lg:flex justify-evenly">
         <span className="btn btn-ghost">About</span>
         <button
           className="btn btn-ghost"
@@ -112,12 +112,15 @@ export default function MainNav() {
       </div>
       <div className="navbar-end flex gap-2">
         {isSignedIn ? (
-          <div className="dark:bg-white p-2 rounded-box">
-            <UserButton showName />
-          </div>
+          <>
+            <a className="btn btn-primary text-white">Dashboard</a>
+            <div className="dark:bg-white px-1 rounded-box ">
+              <UserButton showName />
+            </div>
+          </>
         ) : (
           <div
-            className="btn btn-accent"
+            className="btn btn-primary"
             onClick={() => {
               setIsLoading(true);
               setInterval(() => {

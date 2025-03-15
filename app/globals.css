@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: fantasy --default, halloween --dark;
+  themes: cmyk --default, halloween --dark;
 }
 
 @custom-variant dark (&:where([data-theme=halloween], [data-theme=halloween] *));
