@@ -1,5 +1,6 @@
 "use client";
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 export default function MainNav() {
@@ -113,7 +114,9 @@ export default function MainNav() {
       <div className="navbar-end flex gap-2">
         {isSignedIn ? (
           <>
-            <a className="btn btn-primary text-white">Dashboard</a>
+            <Link href={"/Dashboard"} className="btn btn-primary text-white">
+              Dashboard
+            </Link>
             <div className="dark:bg-white px-1 rounded-box ">
               <UserButton showName />
             </div>

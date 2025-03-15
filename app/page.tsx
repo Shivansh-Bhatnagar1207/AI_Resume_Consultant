@@ -39,8 +39,8 @@ export default function Home() {
             <p className="mb-5 text-lg text-justify text-gray-300">
               Unlock your true potential with tools designed to empower your
               career. From crafting standout resumes to enhancing your
-              professional presence, we’re here to help you achieve your goals
-              effortlessly and effectively.
+              professional presence, we&apos;re here to help you achieve your
+              goals effortlessly and effectively.
             </p>
 
             {/* Button */}
@@ -72,10 +72,10 @@ export default function Home() {
                 </h1>
                 <p className="text-lg text-gray-600 dark:text-gray-300 text-justify leading-relaxed">
                   Our application is designed to simplify resume creation and
-                  content generation for LinkedIn. Whether you're a student or a
-                  seasoned professional, we leverage advanced AI capabilities to
-                  help you create ATS-friendly resumes, optimize your profiles,
-                  and craft compelling posts that stand out.
+                  content generation for LinkedIn. Whether you&apos;re a student
+                  or a seasoned professional, we leverage advanced AI
+                  capabilities to help you create ATS-friendly resumes, optimize
+                  your profiles, and craft compelling posts that stand out.
                 </p>
 
                 {/* Timeline Component */}
