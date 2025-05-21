@@ -2,37 +2,53 @@
 import React from "react";
 import "atropos/css";
 import Atropos from "atropos/react";
-import Cards from "../_components/Cards";
+import Cards from "@/app/_components/Cards";
+import { FiFileText } from "react-icons/fi";
+import { LiaLinkedin } from "react-icons/lia";
+import { BiBriefcase, BiUserCheck } from "react-icons/bi";
+import MainNav from "@/app/_components/DashNav";
 
 const data = [
   {
-    title: "Resume Builder",
-    desc: "Create professional resumes in minutes.",
-    bg: "bg-red-500 ",
-    link: "/Dashboard/Resume_Builder",
-  },
-  {
     title: "Resume Optimization",
-    desc: "Optimize your resume for ATS and recruiters.",
-    bg: "bg-error text-secondary-content",
-    link: "/Dashboard/Resume_Optimization",
+    desc: "Upload your resume to get ATS-friendly optimization tips tailored to your desired job role.",
+    actionText: "Optimize Resume",
+    icon: <FiFileText className="w-8 h-8 text-blue-600" />,
+    action: "/Dashboard/ResumeOptimizer",
   },
   {
-    title: "Content Creator for LinkedIn",
-    desc: "Generate engaging content for your LinkedIn profile.",
-    bg: "bg-green-600",
-    link: "/Dashboard/Caption",
+    title: "LinkedIn Caption Generator",
+    desc: "Generate professional LinkedIn captions from your informal inputs to enhance your profile engagement.",
+    actionText: "Generate Caption",
+    icon: <LiaLinkedin className="w-8 h-8 text-blue-600" />,
+    action: "/Dashboard/Caption",
   },
   {
     title: "LinkedIn Profile Optimization",
-    desc: "Optimize your LinkedIn profile for maximum visibility.",
-    bg: "bg-info text-info-content",
-    link: "/Dashboard/Profile_Optimization",
+    desc: "Upload your LinkedIn profile to receive actionable tips for improving visibility and appeal.",
+    actionText: "Optimize Profile",
+    icon: <BiUserCheck className="w-8 h-8 text-blue-600" />,
+    action: "/Dashboard/Optimize-Profile",
+  },
+  {
+    title: "Generate New Resume",
+    desc: "Create a professional resume from scratch by entering your details step by step.",
+    actionText: "Create Resume",
+    icon: <BiBriefcase className="w-8 h-8 text-blue-600" />,
+    action: "/Dashboard/Create-Resume",
+  },
+  {
+    title: "AI Interviewer",
+    desc: "Practice your interview skills with AI.",
+    actionText: "AI Interviewer",
+    icon: <BiBriefcase className="w-8 h-8 text-blue-600" />,
+    action: "/Dashboard/Interview",
   },
 ];
 export default function Dashboard() {
   return (
     <>
+      <MainNav />
       <div className="flex my-5 justify-center">
         <span className="text-4xl font-bold text-primary">Dashboard</span>
       </div>
@@ -46,14 +62,15 @@ export default function Dashboard() {
         designed to give you an edge. Start exploring and take your career to
         the next level!
       </p>
-      <div className="my-20 flex flex-wrap  gap-10 justify-center items-center min-h-screen ">
+      <div className="my-20 mx-auto  flex flex-wrap gap-10 justify-center items-center ">
         {data.map((card, index) => (
           <Atropos key={index} className="w-96" highlight={false}>
             <Cards
-              bg={card.bg}
+              icon={card.icon}
               title={card.title}
               desc={card.desc}
-              route={card.link}
+              action={card.action}
+              actionText={card.actionText}
             />
           </Atropos>
         ))}

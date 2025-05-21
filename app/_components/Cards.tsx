@@ -1,26 +1,34 @@
 import Link from "next/link";
-import React from "react";
+import React, { ReactElement } from "react";
 
-type Card = {
-  bg: string;
+interface DashboardCardProps {
+  icon: ReactElement;
   title: string;
   desc: string;
-  route: string;
-};
-export default function Cards({ bg, title, desc, route }: Card) {
+  actionText: string;
+  action: string;
+}
+
+function Cards({ icon, title, desc, actionText, action }: DashboardCardProps) {
   return (
-    <div
-      className={`card ${bg} w-72 lg:w-96 shadow-lg rounded-xl transition-transform duration-300 ease-in-out lg:h-48 mx-auto`}
-    >
-      <div className="card-body text-white">
-        <h2 className="card-title text-2xl">{title}</h2>
-        <p className="text-xl">{desc}</p>
-        <div className="card-actions justify-end">
-          <Link href={`${route}`} className="btn">
-            Learn More
-          </Link>
-        </div>
+    <div className="group relative bg-white dark:bg-black  p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl hover:border-blue-500 transition-transform transform  flex flex-col justify-between h-72">
+      <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-100 transition-opacity">
+        {icon}
       </div>
+      <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
+        {title}
+      </h2>
+      <p className="text-gray-600 dark:text-white text-sm mb-4 leading-relaxed line-clamp-3">
+        {desc}
+      </p>
+      <Link
+        href={action}
+        className="btn bg-blue-600 text-white font-medium rounded-lg text-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-center p-2"
+      >
+        {actionText}
+      </Link>
     </div>
   );
 }
+
+export default Cards;
