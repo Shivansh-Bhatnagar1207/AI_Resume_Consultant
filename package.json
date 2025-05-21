@@ -11,12 +11,14 @@
   "dependencies": {
     "@clerk/nextjs": "^6.12.5",
     "@google/generative-ai": "^0.24.1",
+    "@react-pdf/renderer": "^4.3.0",
     "atropos": "^2.0.2",
     "next": "^15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0",
+    "react-pdf": "^9.2.1",
     "react-simple-typewriter": "^5.0.1"
   },
   "devDependencies": {
